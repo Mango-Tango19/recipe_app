@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
 import App from './App';
+
+import ErrorBoundry from './components/error-boundry/error-boundry';
 import reportWebVitals from './reportWebVitals';
 import './index.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ErrorBoundry>
+      <BrowserRouter>
+      <App />
+      </BrowserRouter>
+    </ErrorBoundry>
   </React.StrictMode>,
   document.getElementById('root')
 );
