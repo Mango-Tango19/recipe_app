@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
-import Home from "./pages/home";
+import { Home, RandomRecipePage, SearchRecipe } from "./pages";
 
 const App = () => {
   return (
@@ -9,9 +9,9 @@ const App = () => {
         <Routes>
       
           <Route path='/' element={<Home />} />
-                  {/* <Route path="random" element={<RandomRecipe />} />
-            <Route path="/search" element={<Search />} /> 
-            <Route path="recipes/:id" element={<SingleRecipe />} />
+            <Route path="random" element={<RandomRecipePage />} />
+            <Route path="/search" element={<SearchRecipe />} /> 
+              {/* <Route path="recipes/:id" element={<SingleRecipe />} />
             */}
         </Routes>
       
