@@ -1,15 +1,17 @@
-///import { useRandomRecipe } from "./useRandom"
+//import { useRandomRecipe } from "./useRandom"
+import * as actions from '../../redux/actions/fetching-actions'
 import { connect } from "react-redux"
+import { bindActionCreators } from 'redux'
 
 const RandomRecipe = ({state}) => {
 
-    //const { state, performRequest } = useRandomRecipe()
 
-    console.log(state)
+console.log(state)
 
     return <div>
         <button className="btn btn-primary"> get random </button>
-        {/* <p>{state.data ? state.data.meals[0].strMeal : 'please get random'}</p> */}
+        <p>{state.data ? state.data.meals[0].strMeal : 'please get random'}</p>
+        
     </div>
 }
 
@@ -20,12 +22,14 @@ const mapStateToProps = (state) => {
 
 }
 
+const mapDispatchToProps = (dispatch) => {
 
-// const mapDispatchToProps = (dispatch) => {
+    const { send_request, request_success, request_error } = bindActionCreators(actions, dispatch)
 
-//     return {
+    return {
+        send_request, request_success, request_error 
+    }
 
-//     }
-
-// }
-export default connect(mapStateToProps)(RandomRecipe)
+}
+//export default RandomRecipe
+export default connect(mapStateToProps, mapDispatchToProps)(RandomRecipe)
