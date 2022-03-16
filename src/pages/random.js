@@ -1,7 +1,7 @@
-import RandomRecipe from "../components/random-recipe/random-recipe"
+import RandomRecipe from "../components/random-recipe/random-recipe";
 
 const RandomRecipePage = () => {
-    return <RandomRecipe />
-}
+  return <RandomRecipe />;
+};
 
-export default RandomRecipePage
+export default RandomRecipePage;

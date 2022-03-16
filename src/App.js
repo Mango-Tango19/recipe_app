@@ -7,7 +7,6 @@ const App = () => {
      <div className='container-fluid'>
        <Navbar />
         <Routes>
-      
           <Route path='/' element={<Home />} />
             <Route path="random" element={<RandomRecipePage />} />
             <Route path="/search" element={<SearchRecipe />} /> 
