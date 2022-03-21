@@ -2,15 +2,15 @@
 //import * as actions from '../../redux/actions/fetching-actions'
 //import { connect } from "react-redux"
 //import { bindActionCreators } from 'redux'
-import  WithService from '../hoc/with-service'
+//import  WithService from '../hoc/with-service'
 //import WithData from '../hoc/with-data'
 // import { useCallback, useEffect, useState } from 'react'
 
 import React from "react"
 
- import LoadingIndicator from "../loading-indicator/loadingIndicator"
+import LoadingIndicator from "../loading-indicator/loadingIndicator"
 
-
+//import Service from "../../service/service";
 
 class RandomRecipe extends React.Component {
 
@@ -20,8 +20,8 @@ class RandomRecipe extends React.Component {
       };
   
       componentDidMount() {
-        this.props.recipeService
-          .getRandomrecipe()
+        this.props
+          .getData()
           .then((data) => this.setState({ randomRecipeData: data }));
       }
   
@@ -76,6 +76,19 @@ class RandomRecipe extends React.Component {
 //     }
 
 // }
-//export default RandomRecipe
-export default WithService()(RandomRecipe)
+
+
+const f = () => {
+  return class extends React.Component {
+
+    componentDidMount() {
+      console.log(this.props)
+    }
+    render () {
+      return <RandomRecipe { ...this.props }/>
+    }
+  }
+}
+export default f()
+//export default WithService()(RandomRecipe) 
 
