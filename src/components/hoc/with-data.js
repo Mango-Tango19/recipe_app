@@ -1,23 +1,21 @@
 import React from "react";
 import LoadingIndicator from "../loading-indicator/loadingIndicator";
 
-const WithData = (View) => {
+const withData = (View) => {
   return class extends React.Component {
     state = {
-      randomRecipeData: null,
+      recipeData: null,
     };
 
     componentDidMount() {
-      this.props.recipeService
-        .getRandomrecipe()
-        .then((data) => this.setState({ randomRecipeData: data }));
+      this.props.getData().then((data) => this.setState({ recipeData: data }));
     }
 
     render() {
-      const { randomRecipeData } = this.state;
+      const { recipeData } = this.state;
 
-      return randomRecipeData ? (
-        <View {...this.props} data={randomRecipeData} />
+      return recipeData ? (
+        <View recipeData={recipeData} { ...this.props } />
       ) : (
         <LoadingIndicator />
       );
@@ -25,4 +23,4 @@ const WithData = (View) => {
   };
 };
 
-export default WithData;
+export default withData
