@@ -1,6 +1,9 @@
 export default class Service  {
 
-    randomUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
+    baseUrl = 'https://www.themealdb.com/api/json/v1/1/'
+
+
+    ingridientUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast'
 
     async getData (url) {
         const res = await fetch(url)
@@ -12,7 +15,11 @@ export default class Service  {
     }
 
     getRandomrecipe =  async () => {
-        const res = await this.getData(this.randomUrl)
-        return res
+        return await this.getData(`${this.baseUrl}random.php`)
+    }
+
+    getRecipesByIngridient = async (ingridient) => {
+       return await this.getData(`${this.baseUrl}/filter.php?i=${ingridient}`)
+
     }
 }

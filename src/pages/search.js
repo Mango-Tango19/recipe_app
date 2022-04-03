@@ -1,5 +1,9 @@
-const SearchRecipe = () => {
-    return<h1>Search</h1>
+import SearchRecipe from "../components/search-recipe/search-recipe"
+
+const SearchRecipePage = () => {
+
+    return <SearchRecipe />
+   
 }
 
-export default SearchRecipe
+export default SearchRecipePage

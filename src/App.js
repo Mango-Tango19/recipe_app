@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
-import { Home, RandomRecipePage, SearchRecipe } from "./pages";
+import { Home, RandomRecipePage, SearchRecipePage } from "./pages";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
             <Route path="random" element={<RandomRecipePage />} />
-            <Route path="/search" element={<SearchRecipe />} /> 
+            <Route path="/search" element={<SearchRecipePage />} /> 
               {/* <Route path="recipes/:id" element={<SingleRecipe />} />
             */}
         </Routes>
