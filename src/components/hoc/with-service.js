@@ -1,6 +1,6 @@
 import { FoodServiceConsumer } from "../../service/service-context";
 
-const WithService = (Wrapped) => {
+const withService = (Wrapped) => {
   return (props) => {
     return (
       <FoodServiceConsumer>
@@ -12,4 +12,4 @@ const WithService = (Wrapped) => {
   };
 };
 
-export default WithService;
+export default withService;
