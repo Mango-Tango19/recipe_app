@@ -1,0 +1,10 @@
+.hint-list {
+    position: absolute;
+    background-color: rgb(235, 235, 235);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.hint-list p {
+    border-bottom: solid 1px #0dcaf0;;
+}

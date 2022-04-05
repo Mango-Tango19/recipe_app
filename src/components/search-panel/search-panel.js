@@ -12,14 +12,10 @@ const SearchPanel = () => {
 
     }
 
-    const helpElement = (
-        <div id='recipeHelp' className='form-text'>
-            We'll sugest you yummy dishes 🤩
-        </div>
-    );
 
     return (
-        <form>
+      <div className="col-md-4 col-xs-12">
+            <form>
             <div className='mb-3'>
                 <label htmlFor='ingridientInput' className='form-label'>
                     Please, type any ingridient
@@ -32,9 +28,10 @@ const SearchPanel = () => {
                     value={userInput}
                     onChange={(e) => handleChange(e)}
                 />
-                {!userInput ? helpElement : <HintPanel hint={suggest} />}
+                {!userInput ? null : <HintPanel hint={suggest} />}
             </div>
         </form>
+      </div>
     );
 };
 

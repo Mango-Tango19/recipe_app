@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import LoadingIndicator from "../loading-indicator/loadingIndicator"
+import './hint-panel.css'
 
 const HintPanel = ({hint}) => {
 
@@ -32,7 +33,7 @@ const HintPanel = ({hint}) => {
 
     const renderHints = (ingridientsArr) =>  {
         
-         const filteredIngridients = ingridientsArr.filter((item) => {
+         const filteredIngridients = ingridientsArr?.filter((item) => {
             const capitalaiseHint = hint.charAt(0).toUpperCase() + hint.slice(1);
             //return item.strIngredient.split().join().includes(capitalaiseHint)
             return item.strIngredient.indexOf(capitalaiseHint) > -1
@@ -40,13 +41,18 @@ const HintPanel = ({hint}) => {
 
         let arr = filteredIngridients.slice(0, 5)
 
+        if ( arr.length === 0) {
+            return   <p>OMG! We don't know this type of food 😵</p>
+        }
+
         return arr.map((item) => {
+            ///make it dropdown
             return <p key={item.idIngredient}>{ item.strIngredient}</p>
         })
 
     }
 
 
-    return  listIngridients ?  renderHints(listIngridients) : <LoadingIndicator />
+    return  listIngridients ?  <div className="hint-list">{renderHints(listIngridients)}</div> : <LoadingIndicator />
 }
 export default HintPanel
