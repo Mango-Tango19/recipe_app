@@ -1,39 +1,44 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import LoadingIndicator from "../loading-indicator/loadingIndicator"
 
 const HintPanel = ({hint}) => {
 
     const [ listIngridients, setListIngridients ] = useState(null)
 
-    const searchByIngridient = useCallback( async() => {
 
+    const request = async () => {
         const result = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`)
+        return await result.json()
+    }
 
-        const data = await result.json()
-        setListIngridients(data.meals)
+    const getIngridients = useCallback( () => {
+        request()
+        .then(data =>  setListIngridients(data.meals))
+        .catch(err => err)
 
     }, [])
 
     useEffect(() => {
-        searchByIngridient()
-    }, [searchByIngridient, hint])
+        let busy = false
+        if (!busy) {
+            getIngridients()
+        }
+        return () => busy = true
+       
+    }, [getIngridients])
 
 
-    const renderHints = (ingridientsArr) => {
+
+
+    const renderHints = (ingridientsArr) =>  {
         
-        // const filteredIngridients = ingridientsArr.filter((item) => {
-          
-        //     const capitalaiseHint = hint.charAt(0).toUpperCase() + hint.slice(1);
-        //     //item.strIngredient.incudes(hint)
-        //     if (typeof item.strIngredient === 'string') {
-        //         console.log(item.strIngredient)
-        //         return item.strIngredient.incudes(capitalaiseHint)
-        //     }
-        //     console.log( 'NOT A STRING  ==>' + typeof(item.strIngredient) + item.strIngredient) 
-        //     return null
-        // })
+         const filteredIngridients = ingridientsArr.filter((item) => {
+            const capitalaiseHint = hint.charAt(0).toUpperCase() + hint.slice(1);
+            //return item.strIngredient.split().join().includes(capitalaiseHint)
+            return item.strIngredient.indexOf(capitalaiseHint) > -1
+        })
 
-        let arr = ingridientsArr.slice(0, 5)
+        let arr = filteredIngridients.slice(0, 5)
 
         return arr.map((item) => {
             return <p key={item.idIngredient}>{ item.strIngredient}</p>
