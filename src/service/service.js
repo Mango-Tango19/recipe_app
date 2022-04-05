@@ -3,7 +3,7 @@ export default class Service  {
     baseUrl = 'https://www.themealdb.com/api/json/v1/1/'
 
 
-    ingridientUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast'
+    ingridientUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?i='
 
     async getData (url) {
         const res = await fetch(url)
