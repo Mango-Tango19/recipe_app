@@ -46,8 +46,8 @@ const HintPanel = ({hint}) => {
         }
 
         return arr.map((item) => {
-            ///make it dropdown
-            return <p key={item.idIngredient}>{ item.strIngredient}</p>
+            
+            return <button className="dropdown-item" key={item.idIngredient}>{ item.strIngredient}</button>
         })
 
     }
