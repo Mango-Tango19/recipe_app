@@ -2,9 +2,12 @@ import { useCallback, useEffect, useState } from "react";
 import LoadingIndicator from "../loading-indicator/loadingIndicator";
 import "./hint-panel.css";
 
-const HintPanel = ({ hint }) => {
+const HintPanel = ({ hint, addToInput }) => {
   const [listIngridients, setListIngridients] = useState(null);
-   const [ filteredItems, setFilteredItems ] = useState([])
+   const [ { filteredItems, loading }, setFilteredItems ] = useState({
+    filteredItems: [],
+    loading: true
+   })
 
   const request = async () => {
     const result = await fetch(
@@ -37,24 +40,32 @@ const HintPanel = ({ hint }) => {
 
   useEffect(() => {
      if (listIngridients) {
-        let arr = filterIngridients(listIngridients)
-        setFilteredItems(arr)
+        let filteredItems = filterIngridients(listIngridients)
+        setFilteredItems({
+            filteredItems,
+            loading: false
+        })
      }
   }, [filterIngridients, listIngridients]);
 
   const removeFromHintsList = (e, hintItem) => {
     e.preventDefault();
-    console.log(hintItem)
     let removedOneItemArr = filteredItems.filter((item) => {
         return item.idIngredient !== hintItem.idIngredient
     })
-    setFilteredItems(removedOneItemArr)
+
+    addToInput(hintItem)
+    
+    setFilteredItems({
+        ...loading,
+        filteredItems: removedOneItemArr
+    })
   };
 
   const renderHints = (filteredItems) => {
-
-    if (filteredItems.length === 0) {
+    if (filteredItems.length === 0 && !loading) {
       return <p>OMG! We don't know this type of food 😵</p>;
+ 
     }
 
     return filteredItems.map((hintItem) => {
@@ -70,7 +81,7 @@ const HintPanel = ({ hint }) => {
     });
   };
 
-  return filteredItems ? (
+  return !loading ? (
     <div className='hint-list'>{renderHints(filteredItems)}</div>
   ) : (
     <LoadingIndicator />

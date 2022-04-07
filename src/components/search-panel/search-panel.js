@@ -3,22 +3,32 @@ import HintPanel from "../hint-panel/hint-panel";
 
 const SearchPanel = () => {
 
-  const [ userInput, setUserInput ] = useState('')
+  const [ { letter, words }, setUserInput ] = useState({
+    letter: '',
+    words: []
+  })
   const [ suggest, setSuggest ] = useState('')
 
     const handleChange = (e) => {
-      setUserInput(e.target.value)
+      const letter = e.target.value
+      setUserInput({
+        ...words,
+        letter
+        
+      })
       setSuggest(e.target.value)
 
     }
 
+    const addToInput = (ingridient) => {
+      console.log(ingridient)
+      console.log(words)
+      // setUserInput({
+      //   ...letter,
+      //   words: [ingridient]
+      // })
 
-  //   const addToInput = (e, ingridient) => {
-
-  //     e.preventDefault()
-  //     console.log(ingridient)
-
-  // }
+  }
 
 
     return (
@@ -33,10 +43,10 @@ const SearchPanel = () => {
                     className='form-control'
                     id='ingridientInput'
                     aria-describedby='recipeHelp'
-                    value={userInput}
+                    value={letter}
                     onChange={(e) => handleChange(e)}
                 />
-                {!userInput ? null : <HintPanel hint={suggest} />}
+                {!letter ? null : <HintPanel hint={suggest} addToInput={addToInput}/>}
             </div>
         </form>
       </div>
