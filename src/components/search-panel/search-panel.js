@@ -13,6 +13,14 @@ const SearchPanel = () => {
     }
 
 
+  //   const addToInput = (e, ingridient) => {
+
+  //     e.preventDefault()
+  //     console.log(ingridient)
+
+  // }
+
+
     return (
       <div className="col-md-4 col-xs-12">
             <form>
