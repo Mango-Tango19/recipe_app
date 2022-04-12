@@ -1,40 +1,34 @@
 import { useState } from "react";
 import HintPanel from "../hint-panel/hint-panel";
+import InputTag from "../input-tag/input-tag";
+import './search-panel.css'
+
 
 const SearchPanel = () => {
 
-  const [ { letter, words }, setUserInput ] = useState({
-    letter: '',
-    words: []
-  })
+  let [ letter, setUserInput ] = useState('')
   const [ suggest, setSuggest ] = useState('')
 
     const handleChange = (e) => {
-      const letter = e.target.value
-      setUserInput({
-        ...words,
-        letter
-        
-      })
+      setUserInput( e.target.value )
       setSuggest(e.target.value)
 
     }
 
     const addToInput = (ingridient) => {
-      console.log(ingridient)
-      console.log(words)
-      // setUserInput({
-      //   ...letter,
-      //   words: [ingridient]
-      // })
+       setUserInput(ingridient.strIngredient)
+       setSuggest('')
 
   }
 
 
     return (
       <div className="col-md-4 col-xs-12">
-            <form>
-            <div className='mb-3'>
+            <form className="search_form">
+            <div className='mb-3 position-relative'>
+
+                <InputTag />
+
                 <label htmlFor='ingridientInput' className='form-label'>
                     Please, type any ingridient
                 </label>
@@ -46,7 +40,7 @@ const SearchPanel = () => {
                     value={letter}
                     onChange={(e) => handleChange(e)}
                 />
-                {!letter ? null : <HintPanel hint={suggest} addToInput={addToInput}/>}
+                {!suggest ? null : <HintPanel hint={suggest} addToInput={addToInput}/>}
             </div>
         </form>
       </div>
