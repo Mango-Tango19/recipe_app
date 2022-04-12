@@ -1,8 +1,8 @@
 import './input-tag.css'
 
-const InputTag = ({title}) => {
+const InputTag = ({title, handleClickOnTag}) => {
     return (
-        <button
+        <button onClick={(e) => handleClickOnTag(e)}
             className='btn btn-primary btn-sm position-absolute search_tag'
         >
            {title}

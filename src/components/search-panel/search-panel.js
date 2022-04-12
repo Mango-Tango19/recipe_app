@@ -4,10 +4,11 @@ import InputTag from "../input-tag/input-tag";
 import './search-panel.css'
 
 
-const SearchPanel = () => {
+const SearchPanel = ({setMainIngridient}) => {
 
   let [ letter, setUserInput ] = useState('')
   const [ suggest, setSuggest ] = useState('')
+  const [ inputTag, setInputTag ] = useState(null)
 
     const handleChange = (e) => {
       setUserInput( e.target.value )
@@ -16,9 +17,16 @@ const SearchPanel = () => {
     }
 
     const addToInput = (ingridient) => {
-       setUserInput(ingridient.strIngredient)
+       setInputTag(ingridient.strIngredient)
+       setMainIngridient(ingridient.strIngredient)
        setSuggest('')
+       setUserInput('')
 
+  }
+
+  const handleClickOnTag = (e) => {
+    e.preventDefault()
+    setInputTag(null)
   }
 
 
@@ -26,9 +34,7 @@ const SearchPanel = () => {
       <div className="col-md-4 col-xs-12">
             <form className="search_form">
             <div className='mb-3 position-relative'>
-
-                <InputTag />
-
+                { inputTag ? <InputTag title={inputTag} handleClickOnTag={handleClickOnTag}/> : null }
                 <label htmlFor='ingridientInput' className='form-label'>
                     Please, type any ingridient
                 </label>
