@@ -10,10 +10,14 @@ const HintPanel = ({ hint, addToInput }) => {
    })
 
   const request = async () => {
-    const result = await fetch(
+    const res = await fetch(
       `https://www.themealdb.com/api/json/v1/1/list.php?i=list`
     );
-    return await result.json();
+   
+      return await res.json();
+    
+     
+    
   };
 
   const getIngridients = useCallback(() => {
@@ -58,7 +62,7 @@ const HintPanel = ({ hint, addToInput }) => {
     
     setFilteredItems({
         ...loading,
-        filteredItems: removedOneItemArr
+        filteredItems: removedOneItemArr,
     })
   };
 
@@ -81,10 +85,7 @@ const HintPanel = ({ hint, addToInput }) => {
     });
   };
 
-  return !loading ? (
-    <div className='hint-list'>{renderHints(filteredItems)}</div>
-  ) : (
-    <LoadingIndicator />
-  );
+  return !loading ? <div className='hint-list'>{renderHints(filteredItems)}</div> : <LoadingIndicator />
+   
 };
 export default HintPanel;

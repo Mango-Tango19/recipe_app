@@ -12,25 +12,30 @@ const IngridientElement = ({ emoji }) => {
   }, []);
 
   return (
-    <div className='col-lg-4 col-sm-4  col-xs-1 d-flex justify-content-center py-3 '>
+    <div className='col-lg-4 col-sm-4  col-xs-1 d-flex justify-content-center py-3 flex-column '>
       <a href='/' className='thumb-menu btn btn-info'>
-        <Emoji label={emoji} symbol={emojiObj[emoji]} />
+       { emojiObj[emoji] ? <Emoji label={emoji} symbol={emojiObj[emoji]} /> : <p>{ emoji }</p> }
       </a>
+        <img className="img-fluid img-cover" src="https://spoonacular.com/recipeImages/654959-312x231.jpg" alt="Hello!" />
+        <h6>Australian Organic Beef</h6>
     </div>
   );
 };
 
 const SuggestedRecipes = ({ mainIngridient }) => {
-  let [mainTitle, setMainTitle] = useState("Most Popular Ingridients");
+  let [ isDefault, setIsDefault  ] = useState(true)
   let [ingridientArray, setIngridientArray] = useState([
     "chicken",
     "beef",
     "vegetables",
   ]);
 
-  if (mainIngridient) {
-  } else {
-  }
+
+//   if (mainIngridient) {
+//     setIsDefault(false)
+//     setIngridientArray([mainIngridient.toLowerCase()])
+//   } 
+
 
   return (
     <section id='gtco-menu' className='section-padding'>
@@ -39,7 +44,7 @@ const SuggestedRecipes = ({ mainIngridient }) => {
           <div className='row mb-2'>
             <div className='col-md-12'>
               <div className='heading-section text-center'>
-                <h2>{mainTitle}</h2>
+                <h2>{isDefault ? "Most Popular Ingridients" : `Best recipes with ${mainIngridient}`}</h2>
               </div>
             </div>
           </div>
