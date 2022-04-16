@@ -1,40 +1,26 @@
 import "./suggested.css";
-import Emoji from "../emoji-component/emoji";
-import { useMemo, useState } from "react";
+//import Emoji from "../emoji-component/emoji";
+import { useEffect, useState } from "react";
+import DefaultRecipeBlock from "../default-recipe-block/default-recipe-block";
+import SpecialRecipeBlock from "../special-recipe-block/special-recipe-block";
 
-const IngridientElement = ({ emoji }) => {
-  const emojiObj = useMemo(() => {
-    return {
-      chicken: "🍗",
-      beef: "🍖",
-      vegetables: "🥗",
-    };
-  }, []);
 
-  return (
-    <div className='col-lg-4 col-sm-4  col-xs-1 d-flex justify-content-center py-3 flex-column '>
-      <a href='/' className='thumb-menu btn btn-info'>
-       { emojiObj[emoji] ? <Emoji label={emoji} symbol={emojiObj[emoji]} /> : <p>{ emoji }</p> }
-      </a>
-        <img className="img-fluid img-cover" src="https://spoonacular.com/recipeImages/654959-312x231.jpg" alt="Hello!" />
-        <h6>Australian Organic Beef</h6>
-    </div>
-  );
-};
 
 const SuggestedRecipes = ({ mainIngridient }) => {
+
   let [ isDefault, setIsDefault  ] = useState(true)
-  let [ingridientArray, setIngridientArray] = useState([
-    "chicken",
-    "beef",
-    "vegetables",
-  ]);
+  // let [ingridientArray, setIngridientArray] = useState([
+  //   "chicken",
+  //   "beef",
+  //   "vegetables",
+  // ]);
 
 
-//   if (mainIngridient) {
-//     setIsDefault(false)
-//     setIngridientArray([mainIngridient.toLowerCase()])
-//   } 
+  useEffect(() => {
+
+    mainIngridient ? setIsDefault(false) : setIsDefault(true)
+
+  }, [mainIngridient])
 
 
   return (
@@ -49,11 +35,7 @@ const SuggestedRecipes = ({ mainIngridient }) => {
             </div>
           </div>
 
-          <div className='row justify-content-center'>
-            {ingridientArray.map((ingridient) => {
-              return <IngridientElement key={ingridient} emoji={ingridient} />;
-            })}
-          </div>
+       { isDefault ? <DefaultRecipeBlock /> : <SpecialRecipeBlock mainIngridient={mainIngridient} />}
         </div>
       </div>
     </section>

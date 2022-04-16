@@ -1,8 +1,8 @@
+
 import { Link } from "react-router-dom";
 
 const Home = () => {
-    return <>
-           <div className="hero">
+    return <div className="hero">
             <div className="container">
                 <div className="row d-flex align-items-center">
                     <div className="col-md-6 hero-left">
@@ -31,9 +31,6 @@ const Home = () => {
                                 </h5>
                             </li>
                         </ul>
-
-                   
-
                     </div>
                     <div className="col-md-6 hero-right">
                     <img src="https://spoonacular.com/recipeImages/654959-312x231.jpg" className="img-fluid" alt="Yummy!!" /> 
@@ -41,7 +38,7 @@ const Home = () => {
                 </div>
             </div>
         </div> 
-     </>
+    
 
 }
 
