@@ -8,8 +8,6 @@ const withData = (View) => {
     };
 
     componentDidMount() {
-      console.log(this.props.recipeService)
-  
      this.props.getData().then((data) => this.setState({ recipeData: data }));
     }
 
