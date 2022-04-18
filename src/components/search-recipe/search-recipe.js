@@ -5,7 +5,7 @@ import SuggestedRecipes from "../suggested-recipes/suggested-recipes";
 const SearchRecipe = ({getData}) => {
 
   const [ mainIngridient, setMainIngridient ] = useState('')
-  const [ recipeData, setRecipeData ] = useState(null)
+  const [ recipeData, setRecipeData ] = useState([])
 
   const ingridientToSend = useMemo(() => {
   return mainIngridient

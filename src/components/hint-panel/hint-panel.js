@@ -14,9 +14,7 @@ const HintPanel = ({ hint, addToInput }) => {
       `https://www.themealdb.com/api/json/v1/1/list.php?i=list`
     );
    
-      return await res.json();
-    
-     
+      return await res.json();  
     
   };
 

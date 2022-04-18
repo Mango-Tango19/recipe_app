@@ -12,9 +12,17 @@ const SuggestedRecipes = ({ recipeData, mainIngridient }) => {
 
   useEffect(() => {
 
-    recipeData ? setIsDefault(false) : setIsDefault(true)
+    if (recipeData) {
+    recipeData.length === 0 ?  setIsDefault(true) : setIsDefault(false) 
+    }
 
-  }, [recipeData])
+    else {
+      throw Error(`no data for ${mainIngridient} in API database`)
+
+    }
+
+
+  }, [recipeData, mainIngridient])
 
 
   return (
