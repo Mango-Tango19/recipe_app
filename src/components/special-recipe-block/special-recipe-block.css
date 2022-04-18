@@ -24,11 +24,11 @@
 
   .recipe-desc p{
     display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;  
-  overflow: hidden;
-  color: white;
-  font-weight: bold;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    color: white;
+    font-weight: bold;
   }
   
   .recipe-social-links {
