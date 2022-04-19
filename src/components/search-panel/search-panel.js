@@ -1,10 +1,13 @@
+import React from "react";
 import { useState } from "react";
 import HintPanel from "../hint-panel/hint-panel";
 import InputTag from "../input-tag/input-tag";
 import './search-panel.css'
 
 
-const SearchPanel = ({setMainIngridient}) => {
+const SearchPanel =  React.memo(({setMainIngridient}) => {
+
+  console.log('SearchPanel render')
 
   let [ letter, setUserInput ] = useState('')
   const [ suggest, setSuggest ] = useState('')
@@ -51,6 +54,6 @@ const SearchPanel = ({setMainIngridient}) => {
         </form>
       </div>
     );
-};
+})
 
 export default SearchPanel;

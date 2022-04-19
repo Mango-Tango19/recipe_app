@@ -3,6 +3,8 @@ import LoadingIndicator from "../loading-indicator/loadingIndicator";
 import "./hint-panel.css";
 
 const HintPanel = ({ hint, addToInput }) => {
+
+  console.log('render panel')
   const [listIngridients, setListIngridients] = useState(null);
    const [ { filteredItems, loading }, setFilteredItems ] = useState({
     filteredItems: [],
@@ -85,5 +87,5 @@ const HintPanel = ({ hint, addToInput }) => {
 
   return !loading ? <div className='hint-list'>{renderHints(filteredItems)}</div> : <LoadingIndicator />
    
-};
+}
 export default HintPanel;
