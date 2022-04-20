@@ -1,25 +1,45 @@
-import withData from '../hoc/with-data';
-import withService from '../hoc/with-service';
+import withData from "../hoc/with-data";
+import withService from "../hoc/with-service";
+import "./single-recipe.css";
 
 const SingleRecipe = ({ recipeData }) => {
-    return (
-        <div className='col-sm-10 py-3 pl-md-0 pl-4'>
-            <div className='heading-section pl-lg-5 ml-md-5'>
-                <span className='subheading'>Recipe of the day:</span>
-                <h2>{recipeData.meals[0].strMeal}</h2>
-            </div>
-            <div className='pl-lg-5 ml-md-5'>
-                <img
-                    src={`${recipeData.meals[0].strMealThumb}`}
-                    className='rounded img-fluid'
-                    alt='Recipe of the day!'
-                />
-                <p>{recipeData.meals[0].strInstructions}</p>
-            </div>
-        </div>
-    );
-}
+  const videoBlock = (
+    <iframe
+      className='embed-responsive-item'
+      src={`${recipeData.meals[0].strYoutube.replace("watch?v=", "embed/")}`}
+      allowFullScreen
+      title={recipeData.meals[0].idMeal}
+    ></iframe>
+  );
 
-export default withService(
-    withData(SingleRecipe)
-);
+  return (
+    <section className='bg-white section-padding'>
+      <div className='container'>
+        <div className='section-content'>
+          <div className='row'>
+            <div
+              style={{
+                backgroundImage: `url(${recipeData.meals[0].strMealThumb})`,
+              }}
+              className='col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2'
+            ></div>
+            <div className='col-sm-7'>
+              <div className='heading-section'>
+                <h3>{recipeData.meals[0].strMeal}</h3>
+              </div>
+
+              <div className='embed-responsive embed-responsive-16by9'>
+                {recipeData.meals[0].strYoutube ? videoBlock : null}
+              </div>
+              <div className='pl-lg-5 ml-md-5'>
+                <p>{recipeData.meals[0].strInstructions}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default withService(withData(SingleRecipe));
