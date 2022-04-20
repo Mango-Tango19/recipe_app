@@ -1,6 +1,7 @@
 
 import React from 'react'
-import RandomRecipe from "../components/random-recipe/random-recipe";
+//import RandomRecipe from "../components/random-recipe/random-recipe";
+import SingleRecipe from '../components/single-recipe/single-recipe';
 import SearchRecipe from "../components/search-recipe/search-recipe"
 import Home  from './home';
 
@@ -11,7 +12,7 @@ const service = new Service()
 const { getRandomrecipe, getRecipesByIngridient } = service
 
 const HomePage =  () => <Home /> 
-const RandomRecipePage = () => <RandomRecipe getData={getRandomrecipe} />
+const RandomRecipePage = () => <SingleRecipe getData={getRandomrecipe} />
 const SearchRecipePage = () =>  <SearchRecipe getData={ getRecipesByIngridient } />
 
 

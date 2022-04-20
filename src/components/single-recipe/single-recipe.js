@@ -1,10 +1,7 @@
-import React from 'react';
 import withData from '../hoc/with-data';
 import withService from '../hoc/with-service';
 
-
-const RandomRecipe = ({ recipeData }) => {
-    ///add strArea: "British"
+const SingleRecipe = ({ recipeData }) => {
     return (
         <div className='col-sm-10 py-3 pl-md-0 pl-4'>
             <div className='heading-section pl-lg-5 ml-md-5'>
@@ -21,8 +18,8 @@ const RandomRecipe = ({ recipeData }) => {
             </div>
         </div>
     );
-};
+}
 
 export default withService(
-    withData(RandomRecipe)
+    withData(SingleRecipe)
 );
