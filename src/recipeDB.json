@@ -1,0 +1,57 @@
+{
+    "meals": {
+        "chicken": [
+            {
+                "strMeal": "Brown Stew Chicken",
+                "strMealThumb": "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg",
+                "idMeal": "52940"
+            },
+            {
+                "strMeal": "Chicken & mushroom Hotpot",
+                "strMealThumb": "https://www.themealdb.com/images/media/meals/uuuspp1511297945.jpg",
+                "idMeal": "52846"
+            },
+            {
+                "strMeal": "Chicken Alfredo Primavera",
+                "strMealThumb": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+                "idMeal": "52796"
+            }
+        ],
+        "beef" : [
+            {
+                "strMeal": "Beef and Mustard Pie",
+                "strMealThumb": "https://www.themealdb.com/images/media/meals/sytuqu1511553755.jpg",
+                "idMeal": "52874"
+            },
+            {
+                "strMeal": "Beef and Oyster pie",
+                "strMealThumb": "https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg",
+                "idMeal": "52878"
+            },
+            {
+                "strMeal": "Beef Dumpling Stew",
+                "strMealThumb": "https://www.themealdb.com/images/media/meals/uyqrrv1511553350.jpg",
+                "idMeal": "52873"
+            }
+        ],
+        "vegetables" : [
+            {
+                "strMeal": "Broccoli & Stilton soup",
+                "strMealThumb": "https://www.themealdb.com/images/media/meals/tvvxpv1511191952.jpg",
+                "idMeal": "52842"
+            },
+            {
+                "strMeal": "Chicken Alfredo Primavera",
+                "strMealThumb": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+                "idMeal": "52796"
+            },
+            {
+                "strMeal": "Honey Balsamic Chicken with Crispy Broccoli & Potatoes",
+                "strMealThumb": "https://www.themealdb.com/images/media/meals/kvbotn1581012881.jpg",
+                "idMeal": "52993"
+            }
+        ]
+    }
+}
+
+
