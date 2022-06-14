@@ -2,26 +2,37 @@ import IngridientRecipes from "../ingridient-recipe/ingridient-recipe";
 import meals from "../../recipeDB.json";
 
 const DefaultRecipeBlock = () => {
-
-
   const renderSingleRecipe = ({ strMealThumb, strMeal, idMeal }) => {
     return (
       <div key={idMeal}>
-        <img
-          className='img-fluid img-cover'
-          src={strMealThumb}
-          alt={strMeal}
-        />
+        <img className='img-fluid img-cover' src={strMealThumb} alt={strMeal} />
         <h6>{strMeal}</h6>
       </div>
     );
   };
 
-  //// replace  for key in val
+
+let arr= []
+
+    for (let key in meals) {
+      debugger
+    arr.push(
+      <IngridientRecipes emoji={key}>
+      {meals.meals[key].map((meal) => {
+        return renderSingleRecipe(meal);
+      })}
+    </IngridientRecipes>
+    )
+      
+    }
+  
+
 
   return (
     <div className='row justify-content-center'>
-      <IngridientRecipes emoji='chicken'>
+      {arr}
+
+      {/* <IngridientRecipes emoji='chicken'>
        {
         meals.meals['chicken'].map((meal) => {
           return renderSingleRecipe(meal)
@@ -43,7 +54,7 @@ const DefaultRecipeBlock = () => {
           return renderSingleRecipe(meal)
         })
        }
-      </IngridientRecipes>
+      </IngridientRecipes> */}
     </div>
   );
 };
