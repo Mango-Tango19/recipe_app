@@ -1,38 +1,21 @@
 import IngridientRecipes from "../ingridient-recipe/ingridient-recipe";
+import SinglrRecipeCell from "../single-recipe-cell/single-recipe-cell";
 import meals from "../../recipeDB.json";
 
 const DefaultRecipeBlock = () => {
-  const renderSingleRecipe = ({ strMealThumb, strMeal, idMeal }) => {
+  const renderSingleRecipe = (meal) => {
     return (
-      <div key={idMeal}>
-        <img className='img-fluid img-cover' src={strMealThumb} alt={strMeal} />
-        <h6>{strMeal}</h6>
-      </div>
+      <SinglrRecipeCell recipeInfo={meal} key={meal.idMeal}/>
     );
   };
 
 
-let arr= []
-
-    for (let key in meals) {
-      debugger
-    arr.push(
-      <IngridientRecipes emoji={key}>
-      {meals.meals[key].map((meal) => {
-        return renderSingleRecipe(meal);
-      })}
-    </IngridientRecipes>
-    )
-      
-    }
-  
-
 
   return (
     <div className='row justify-content-center'>
-      {arr}
+    
 
-      {/* <IngridientRecipes emoji='chicken'>
+      <IngridientRecipes emoji='chicken'>
        {
         meals.meals['chicken'].map((meal) => {
           return renderSingleRecipe(meal)
@@ -54,7 +37,7 @@ let arr= []
           return renderSingleRecipe(meal)
         })
        }
-      </IngridientRecipes> */}
+      </IngridientRecipes>
     </div>
   );
 };
