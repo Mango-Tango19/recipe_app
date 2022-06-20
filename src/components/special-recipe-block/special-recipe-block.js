@@ -10,7 +10,7 @@ const renderColumns = (recipeInfo) => {
 }
 
   return (
-    <div className='row row-cols-3'>
+    <div className='row justify-content-md-center'>
       {recipeData ? recipeData.map(renderColumns) : <ErrorIndicator message="Sorry, no recipes with this ingridient, please, try another one"/>}
     </div>
   );

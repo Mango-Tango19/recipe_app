@@ -2,7 +2,7 @@ import './single-recipe-cell.css'
 
 const SinglrRecipeCell = ({ recipeInfo }) => {
     return (
-      <div className='col-md-4' >
+      <div className='col-lg' >
         <div className='recipe-card mb-5'>
           <img className='img-fluid' src={`${recipeInfo.strMealThumb}`} alt='' />
           <div className='recipe-desc'>
