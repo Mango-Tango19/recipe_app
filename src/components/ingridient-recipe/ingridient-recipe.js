@@ -1,6 +1,6 @@
 import Emoji from "../emoji-component/emoji";
 import { useMemo } from "react";
-
+import { Link } from "react-router-dom";
 
 const IngridientRecipes = (props) => {
 
@@ -14,16 +14,17 @@ const IngridientRecipes = (props) => {
       }, []);
 
 const { emoji } = props
+
   
     return (
       <div className='col-lg-4 col-sm-4  col-xs-1 d-flex justify-content-center py-3 flex-column '>
-        <a href='/' className='thumb-menu btn btn-info'>
+        <Link to={`/${emoji}`} className='thumb-menu btn btn-info'>
           {emojiObj[emoji] ? (
             <Emoji label={emoji} symbol={emojiObj[emoji]} />
           ) : (
             <p>{emoji}</p>
           )}
-        </a>
+        </Link>
 
         <p style={{textAlign: 'center'}}>{emoji}</p>
         
