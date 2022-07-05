@@ -24,6 +24,8 @@ const { emoji } = props
             <p>{emoji}</p>
           )}
         </a>
+
+        <p style={{textAlign: 'center'}}>{emoji}</p>
         
             { props.children }
         
