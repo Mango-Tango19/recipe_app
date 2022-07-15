@@ -29,7 +29,7 @@ const Navbar = () => {
 
           <li className='nav-item active'>
             <Link className='nav-link' to='/search'>
-              Search By Ingridients
+              Search By Main Ingridient
             </Link>
           </li>
         </ul>

@@ -12,25 +12,33 @@ const SearchPanel =  React.memo(({setMainIngridient}) => {
   let [ letter, setUserInput ] = useState('')
   const [ suggest, setSuggest ] = useState('')
   const [ inputTag, setInputTag ] = useState(null)
+  const [ isDisabled, setIsDisabled ] = useState(false)
+
 
     const handleChange = (e) => {
       setUserInput( e.target.value )
       setSuggest(e.target.value)
+      setIsDisabled(false)
 
     }
-
+ 
     const addToInput = (ingridient) => {
        setInputTag(ingridient.strIngredient)
        setMainIngridient(ingridient.strIngredient)
        setSuggest('')
        setUserInput('')
+       setIsDisabled(true)
+      
+
 
   }
 
   const handleClickOnTag = (e) => {
     e.preventDefault()
     setInputTag(null)
+    setIsDisabled(false)
   }
+
 
 
     return (
@@ -48,6 +56,8 @@ const SearchPanel =  React.memo(({setMainIngridient}) => {
                     aria-describedby='recipeHelp'
                     value={letter}
                     onChange={(e) => handleChange(e)}
+                    disabled={isDisabled}
+                  
                 />
                 {!suggest ? null : <HintPanel hint={suggest} addToInput={addToInput}/>}
             </div>

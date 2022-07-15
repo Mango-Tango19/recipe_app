@@ -9,7 +9,7 @@ const IngridientRecipes = (props) => {
         return {
           chicken: "🍗",
           beef: "🍖",
-          vegetables: "🥗",
+          salmon: "🍣",
         };
       }, []);
 

@@ -31,9 +31,9 @@ const DefaultRecipeBlock = () => {
        }
       </IngridientRecipes>
 
-      <IngridientRecipes emoji='vegetables'>
+      <IngridientRecipes emoji='salmon'>
       {
-        meals.meals['vegetables'].map((meal) => {
+        meals.meals['salmon'].map((meal) => {
           return renderSingleRecipe(meal)
         })
        }
