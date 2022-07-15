@@ -3,7 +3,9 @@ export default class Service  {
     baseUrl = 'https://www.themealdb.com/api/json/v1/1/'
 
 
-    ingridientUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?i='
+    // idUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i='
+
+    // ingridientUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?i='
 
     async getData (url) {
         const res = await fetch(url)
@@ -22,4 +24,12 @@ export default class Service  {
        return await this.getData(`${this.baseUrl}/filter.php?i=${ingridient}`)
 
     }
+
+    getRecipesById = async (id) => {
+      
+       return await this.getData(`${this.baseUrl}/lookup.php?i=${id}`)
+     
+    
+ 
+     }
 }

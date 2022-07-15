@@ -12,7 +12,6 @@ const PopularIngridientRecipe = ({getData, ingridient}) => {
         .then(data => setRecipeData(data.meals))
         .catch((err) => err)
     }
- 
 
   }, [ingridient, getData])
 

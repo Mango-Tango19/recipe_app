@@ -3,12 +3,19 @@ import LoadingIndicator from "../loading-indicator/loadingIndicator";
 
 const withData = (View) => {
   return class extends React.Component {
+  
     state = {
       recipeData: null,
     };
 
     componentDidMount() {
-     this.props.getData().then((data) => this.setState({ recipeData: data }));
+
+     if (this.props.id) {
+        this.props.getData(this.props.id).then((data) => this.setState({ recipeData: data }));
+      } else { 
+        this.props.getData().then((data) => this.setState({ recipeData: data }));
+      }
+ 
     }
 
     render() {
