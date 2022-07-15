@@ -15,12 +15,9 @@ const App = () => {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/random' element={<RandomRecipePage />} />
-        <Route path='search/*' element={<SearchRecipePage />} >
-            <Route
-              path='search/:id'
-              element={<SinglrRecipePage />}
-            />
-            </Route>
+        <Route path='search/*' element={<SearchRecipePage />} />
+        <Route path='search/:id' element={<SinglrRecipePage />} />
+
         <Route
           path='/chicken'
           element={<PopularIngridientRecipePage ingridient='chicken' />}
@@ -33,8 +30,7 @@ const App = () => {
           path='/salmon'
           element={<PopularIngridientRecipePage ingridient='salmon' />}
         />
-           {/* <Route path="*" element={<NotFound />} /> */}
-     
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </div>
   );

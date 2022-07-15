@@ -1,11 +1,9 @@
 import withData from "../hoc/with-data";
 import withService from "../hoc/with-service";
 import "./single-recipe.css";
-import TableData from "../table-data/table-data";
+//import TableData from "../table-data/table-data";
 
 const SingleRecipe = ({ recipeData }) => {
-
-
   const videoBlock = (
     <iframe
       className='embed-responsive-item'
@@ -30,7 +28,16 @@ const SingleRecipe = ({ recipeData }) => {
               <div className='heading-section'>
                 <h3>{recipeData.meals[0].strMeal}</h3>
               </div>
-              <TableData dataObj={recipeData.meals[0]}/>
+             
+              {/* <table className='table'>
+                <thead>
+                  <tr>
+                    <th scope='col'>Ingridients</th>
+                    <th scope='col'>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>{renderTableRows(recipeData.meals[0])}</tbody>
+              </table> */}
               <div className='embed-responsive embed-responsive-16by9'>
                 {recipeData.meals[0].strYoutube ? videoBlock : null}
               </div>
