@@ -1,7 +1,6 @@
 import withData from "../hoc/with-data";
 import withService from "../hoc/with-service";
 import "./single-recipe.css";
-//import TableData from "../table-data/table-data";
 
 const SingleRecipe = ({ recipeData }) => {
   const videoBlock = (

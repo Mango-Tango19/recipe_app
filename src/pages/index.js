@@ -7,6 +7,7 @@ import SingleRecipeBySearch from '../components/single-recipe-by-search/single-r
 import Home  from './home';
 import PopularIngridientRecipe from '../components/popular-ingridient-recipe/popular-ingridient-recipe';
 import { useParams } from "react-router-dom";
+import Profile from '../components/profile/profile';
 
 import Service from "../service/service";
 
@@ -22,11 +23,13 @@ const SinglrRecipePage = () => {
     let params = useParams();
    return  <SingleRecipeBySearch getData={getRecipesById} id={params.id}/>
 }
+const ProfilePage = () => <Profile />
 
 export {
     HomePage,
     RandomRecipePage,
     SearchRecipePage,
     PopularIngridientRecipePage,
-    SinglrRecipePage
+    SinglrRecipePage,
+    ProfilePage
 }

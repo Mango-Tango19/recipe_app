@@ -1,3 +1,31 @@
+
+ html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: #000;
+
+}
+
+.btn-icon .lnr {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.hero-info .lnr {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.hero-info {
+  margin-top: 2em;
+}
+
+.hero-info li:not(:last-child) {
+  margin-right: 2em;
+
 }
