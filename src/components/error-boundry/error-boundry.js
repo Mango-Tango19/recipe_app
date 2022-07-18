@@ -9,7 +9,7 @@ class ErrorBoundry extends React.Component {
     }
 
     componentDidCatch() {
-        this.state({ hasError: true })
+        this.setState({ hasError: true })
     }
 
 
