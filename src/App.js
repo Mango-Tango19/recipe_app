@@ -14,7 +14,7 @@ const App = () => {
     <div className='container-fluid'>
       <Navbar />
       <Routes>
-        <Route path='/profile' element={<AuthPage />} />
+        <Route path='/auth' element={<AuthPage />} />
 
         <Route path='/' element={<HomePage />} />
         <Route path='/random' element={<RandomRecipePage />} />
