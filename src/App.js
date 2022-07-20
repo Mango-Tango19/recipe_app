@@ -6,7 +6,7 @@ import {
   SearchRecipePage,
   PopularIngridientRecipePage,
   SinglrRecipePage,
-  ProfilePage
+  AuthPage,
 } from "./pages";
 
 const App = () => {
@@ -14,14 +14,8 @@ const App = () => {
     <div className='container-fluid'>
       <Navbar />
       <Routes>
+        <Route path='/profile' element={<AuthPage />} />
 
-  
-        <Route
-          path='/profile'
-          element={<ProfilePage />}
-        />
-      
-   
         <Route path='/' element={<HomePage />} />
         <Route path='/random' element={<RandomRecipePage />} />
         <Route path='search/*' element={<SearchRecipePage />} />
@@ -39,8 +33,6 @@ const App = () => {
           path='/salmon'
           element={<PopularIngridientRecipePage ingridient='salmon' />}
         />
-
-   
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </div>
