@@ -1,11 +1,14 @@
 import { useSelector } from "react-redux";
-import React, { useState } from "react";
+import React from "react";
 import "./auth.css";
 import { RegistrationForm } from "./registration-form";
+import useToken from "../../useToken";
 
 const Auth = () => {
+  const { token, setToken } = useToken();
+
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const [token, setToken] = useState();
+
   return (
     <section className='vh-100 gradient-custom'>
       <div className='container py-5 h-100'>
